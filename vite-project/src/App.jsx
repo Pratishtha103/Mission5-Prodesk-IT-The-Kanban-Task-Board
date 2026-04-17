@@ -38,37 +38,40 @@ function App() {
       [column]: prev[column].filter((task) => task.id !== id),
     }));
   };
-  // Move Task 
+  // Move Task
   const moveTask = (id, from, to) => {
     const task = tasks[from].find((t) => t.id === id);
+
+    if (!task) return; // safety
+
     setTasks((prev) => ({
       ...prev,
       [from]: prev[from].filter((t) => t.id !== id),
       [to]: [...prev[to], task],
     }));
-
-    
-    //Edit Task
-    const startEditing = (task) => {
-      setEditingTask(task.id);
-      setEditValue(task.text);
-    };
-    //Save edited Task
-    const saveEdit = (id, column) => {
-      if (editValue.trim() === "") return;
-
-      setTasks((prev) => ({
-        ...prev,
-        [column]: prev[column].map((task) =>
-          task.id === id ? { ...task, text: editValue } : task
-        ),
-      }));
-
-      setEditingTask(null);
-      setEditValue("");
-    };
-
   };
+
+  // Edit Task
+  const startEditing = (task) => {
+    setEditingTask(task.id);
+    setEditValue(task.text);
+  };
+
+  // Save edited Task
+  const saveEdit = (id, column) => {
+    if (editValue.trim() === "") return;
+
+    setTasks((prev) => ({
+      ...prev,
+      [column]: prev[column].map((task) =>
+        task.id === id ? { ...task, text: editValue } : task
+      ),
+    }));
+
+    setEditingTask(null);
+    setEditValue("");
+  };
+  
   return (
     <div className=" flex-col bg-[linear-gradient(135deg,#4a3b7c,#7b4f9e,#c17ab0)] min-h-screen">
         <Header/>
