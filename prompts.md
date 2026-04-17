@@ -55,3 +55,17 @@ error: failed to push some refs to 'https://github.com/Pratishtha103/Mission5-Pr
 "Why do we need two fields for moving a task"
 
 "Can filter be used in Delete button logic"
+
+"why does my other feild's height increase with add task and to do div"
+
+"how to handle priority logic in task"
+
+"How to add this logic Editing: Click on a task text to turn it into an input field, edit it, and save."
+
+"How to clear localStorage"
+
+"Is localStorage safe"
+
+"How to save task to localStorage"
+
+"How to fetch from localStorage"
